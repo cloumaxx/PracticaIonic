@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Mis Compras
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()" expand="full" color="danger">Cerrar Sesion</ion-button>
+      <ion-img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="your-img"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+  
+
+</ion-header>
+<ion-content style="text-align: center;">
+    <div class='center' > 
+      <p>Tus compras
+      <ion-button (click)="actualizar()"> Actualizar </ion-button>
+    </p>
+      <ul>
+        <li *ngFor="let cabecera of cabeceras;let i = index" >
+          <div id="factura" >
+            <p>Factura #{{i+1}}
+            <ion-button (click)="mostrarVentanaEmergente(cabecera.id)">Ver</ion-button>
+            </p>
+          </div>
+          </li>
+      </ul>
+    </div>
+
+
+</ion-content>

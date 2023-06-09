@@ -1,0 +1,42 @@
+<!--
+<p>
+  producto works!
+</p>
+-->
+<ion-card>
+  <img *ngIf="producto.linkvideo === 'url_link_video'" 
+    alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+
+
+
+  <ion-slides pager="true" *ngIf="producto.linkvideo !== 'url_link_video'">
+    <ion-slide *ngFor="let multimedia of producto.linkvideo">
+      <img src="{{multimedia.url}}" />
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-card-header>
+    <ion-card-title>{{producto.product}} </ion-card-title>
+    <ion-card-subtitle > {{index}} {{producto.sku}} - {{producto.id}}
+    </ion-card-subtitle> 
+    
+  </ion-card-header>
+  <ion-card-content>
+    <br>
+    <ion-label>Color: </ion-label> <button class="boton-color" [style.background-color]="producto.color" ></button>
+    <br>
+    <ion-label> Precio:  {{producto.precio}}</ion-label>
+    <br>
+    <ion-label> Cantidad:  {{producto.cantidad}}</ion-label>
+    <br>
+    <ion-label> Valor: {{valorPrenda}}</ion-label>
+    <br>
+    <ion-button class="btn btn-danger" (click)="borrarProducto(index-1)">
+      Borrar
+    </ion-button>
+  </ion-card-content>
+
+
+</ion-card>
+

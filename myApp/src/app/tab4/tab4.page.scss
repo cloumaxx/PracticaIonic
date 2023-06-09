@@ -1,0 +1,26 @@
+img{
+    height: 786px;
+    weight: 393px;
+}
+ion-slides{
+    height: 100%;
+}
+ion-slide{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-input {
+    width: 100vw;
+    /* Anchura personalizada */
+    display: flex;
+    justify-content: center;
+}
+
+.your-img {
+    height: 5vw;
+    border-radius: 10px !important;
+    overflow: hidden;
+}

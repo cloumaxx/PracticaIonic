@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Información Personalizada</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content *ngFor="let factura of info">
+    <ul>
+      <li>ID: {{ factura[0]}}</li>
+      <li>Nombre: {{factura[1]}}</li>
+      <li>Precio: {{factura[2]}}</li>
+      <li>Cantidad: {{factura[3]}}</li>
+      <li>Descuento: {{factura[4]}}</li>
+      <li>Precio Total: {{factura[5]}}</li>
+    </ul>
+    ---------------------------
+    <br>
+    </ion-card-content>
+    <h3>Total Pagado: {{totalPrecio}}</h3>
+  </ion-card>
+
+  <ion-button color="danger" (click)="cerrarVentanaEmergente()">Cerrar</ion-button>
+</ion-content>

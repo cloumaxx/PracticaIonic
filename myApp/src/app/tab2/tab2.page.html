@@ -1,0 +1,70 @@
+<ion-header [translucent]="true" style="text-align: center;">
+  <ion-toolbar>
+    <ion-title>
+      Registrate
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<!---->
+<ion-content style="text-align: center; align-items: center;">
+<ion-list>
+  <ion-list>
+    Nombre de Usuario
+
+    <div class="custom-input">
+    <ion-item style="width: 40vw;" fill="outline" mode="md">
+      <ion-input required [(ngModel)]='nombreUsuario' (ionChange)="verificarCamposVacios()"label="Floating Label" labelPlacement="floating" style="width: 100px;" placeholder="Nombre Usuario"></ion-input>
+    </ion-item>
+    </div>
+    Contrasena
+
+    <div class="custom-input">
+      <ion-item style="width: 40vw;" fill="outline" mode="md">
+        <ion-input required  clearOnEdit="false" [(ngModel)]='contrasena' (ionChange)="verificarCamposVacios()" label="Password input" labelPlacement="floating" [type]="passwordType" placeholder="Contrasena"></ion-input>
+        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+      </ion-item>
+    </div>
+    
+
+    Confirmar Contrasena
+
+    <div class="custom-input">
+      <ion-item style="width: 40vw;" fill="outline" mode="md">
+        <ion-input required  clearOnEdit="false" [(ngModel)]='contrasenaConfirm' (ionChange)="verificarCamposVacios()" label="Password input" labelPlacement="floating" [type]="passwordType1" placeholder="Confirma Contraseña"></ion-input>
+        <ion-icon item-end [name]="passwordIcon1" class="passwordIcon1" (click)='hideShowPassword1()'></ion-icon>
+      </ion-item>
+    </div>
+
+    Nombre
+
+    <div class="custom-input">
+      <ion-item style="width: 40vw;" fill="outline" mode="md">
+        <ion-input required [(ngModel)]='nombre' (ionChange)="verificarCamposVacios()" label="Text input" labelPlacement="floating" placeholder="Nombre"></ion-input>
+      </ion-item>
+    </div>
+
+    Apellido
+
+    <div class="custom-input">
+      <ion-item style="width: 40vw;" fill="outline" mode="md">
+        <ion-input required required [(ngModel)]='apellido' (ionChange)="verificarCamposVacios()" label="Text input" labelPlacement="floating" placeholder="Apellido"></ion-input>
+      </ion-item>
+    </div>
+
+    E-mail
+    <div class="custom-input">
+      <ion-item style="width: 40vw;" fill="outline" mode="md">
+        <ion-input required [(ngModel)]='email' (ionChange)="verificarCamposVacios()" label="Email input" type="email" labelPlacement="floating" placeholder="email@usb.com"></ion-input>
+      </ion-item>
+    </div>
+
+  </ion-list>
+</ion-list>
+<ion-button style="text-align: center;" color="success" (click)="guardarDatos()" >Registrarte</ion-button>
+<ion-button style="text-align: center;" color="danger" (click)="botonCancelar()">Cancelar</ion-button>
+<ion-text class="center-text" color="primary" (click)="botonCancelar()">
+  <p>¿Ya tienes una cuenta? Inicia Sesion</p>
+</ion-text>
+</ion-content>
+
+

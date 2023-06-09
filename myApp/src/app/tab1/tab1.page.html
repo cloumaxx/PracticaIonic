@@ -1,0 +1,31 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<ion-header [translucent]="true" style="text-align: center;">
+  <ion-toolbar>
+    <ion-title>Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center; align-items: center; justify-content: center;">
+  <ion-list>
+    <ion-list>
+      Correo:
+    <div class="custom-input">
+      <ion-item style="width: 40vw;" fill="outline" mode="md">
+        <ion-input required [(ngModel)]='correo' (ionChange)="verificarCamposVacios()" label="Email input" type="email" labelPlacement="floating" placeholder="email@usb.com"></ion-input>
+      </ion-item>
+    </div>
+    Contraseña
+    <div class="custom-input">
+      <ion-item style="width: 40vw;" fill="outline" mode="md">
+        <ion-input required  clearOnEdit="false" [(ngModel)]='password' (ionChange)="verificarCamposVacios()" label="Password input" labelPlacement="floating" [type]="passwordType" placeholder="Contraseña"></ion-input>
+        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+      </ion-item>
+    </div>
+    </ion-list>
+  </ion-list>
+  <ion-button style="text-align: center;" color="primary" (click)="iniciarSesion()">Iniciar sesión</ion-button>
+  <ion-text class="center-text" color="primary" (click)="redirectRegister()">
+    <p>¿No tienes una cuenta? Regístrate</p>
+  </ion-text>
+  </ion-content>

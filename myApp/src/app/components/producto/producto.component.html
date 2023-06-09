@@ -1,0 +1,72 @@
+<!--
+<p>
+  producto works!
+</p>
+-->
+<ion-card>
+  <img *ngIf="producto.linkvideo === 'url_link_video'" 
+    alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+
+    
+
+
+  <ion-slides pager="true" *ngIf="producto.linkvideo !== 'url_link_video'">
+    <ion-slide *ngFor="let multimedia of producto.linkvideo">
+      <img src="{{multimedia.url}}" />
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-card-header>
+    <ion-card-title>{{producto.product}} </ion-card-title>
+    <ion-card-subtitle > {{index}} {{producto.sku}} - {{producto.id}}
+    </ion-card-subtitle> 
+
+    <ion-button fill="outline" (click)="ActivareleccionColor(producto.id)">Guardar</ion-button>
+  </ion-card-header>
+  <ion-card-content *ngIf="color">
+    <p><b>Colores Disponibles :</b> </p>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let color of coloresDisponibles">
+          <button class="boton-color" [style.background-color]="color" [ngStyle]="{'border': color === colorSeleccionado ? '2px solid red' : ''}" (click)="mostrarTallas(producto.id, color)"></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+  
+  <ion-card-content *ngIf="tallas" >
+    <ion-label>Tallas disponibles</ion-label>
+
+    <ion-select class="larger-select" placeholder="Selecciona una talla" (ionChange)="handleChange($event)">
+      <ion-select-option *ngFor="let talla of tallasDisponibles; let i = index" [value]="talla" >
+        {{talla}}, disponible: {{qtkTallas[i]}}
+      </ion-select-option>
+    </ion-select>
+    <ion-item *ngIf="tallaSeleccionada!== '' ">
+      <ion-label position="floating">Cuantos deseas?</ion-label>
+     
+      <ion-button (click)="disminuirCantidad()">-</ion-button>
+
+      <ion-label style="text-align: justify;">{{cantidadDeseada}}</ion-label>
+
+      <ion-button (click)="aumentarCantidad(producto.id)">+</ion-button>
+    </ion-item>
+    <ion-label>Precio: {{precio*cantidadDeseada}}</ion-label>
+    
+  </ion-card-content>
+ 
+
+
+
+
+  <ion-card-content *ngIf="guardar">
+    <ion-button color="success" (click)="guardarStorage(producto, colorSeleccionado,tallaSeleccionada,cantidadDeseada,precio)">Guardar</ion-button>
+  </ion-card-content>
+  
+  <ion-card-content>
+    {{producto.characteristics}}
+  </ion-card-content>
+</ion-card>
+

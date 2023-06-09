@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{nombreTab}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()" expand="full" color="danger">Cerrar Sesion</ion-button>
+      <ion-img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="your-img"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align: center;">
+  <div class='center' *ngIf="precioTotal=== 0 ">
+   
+   
+    <ion-text>Tu carrito de compras está vacio</ion-text>
+    <br><br>
+    <ion-button (click)="cargarDatos()"> Actualzar </ion-button>
+  </div>
+  <div *ngIf="precioTotal!== 0 ">
+    <ion-buttons slot="end">
+      <ion-title style="text-align: left;">Productos agregados </ion-title>
+      <ion-button (click)="cargarDatos()"> Actualizar </ion-button>
+    </ion-buttons>
+    
+    <app-carrito [productos] ="carritoUsar"></app-carrito>
+  
+    <ion-label id="TotalPagar"> Valor a pagar: {{precioTotal}}</ion-label>
+    <br>
+  
+    <ion-button color="success" (click)="pagarProductos()"> Pagar </ion-button>
+  </div>
+
+
+</ion-content>

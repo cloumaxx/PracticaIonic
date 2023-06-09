@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{nombreTab}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()" expand="full" color="danger">Cerrar Sesion</ion-button>
+      <ion-img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" class="your-img"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--
+  <ion-list>
+    <ion-item *ngFor="let producto of misDatos">
+          <h2>{{ producto.product}}</h2>
+    </ion-item>
+  </ion-list>
+  -->
+  <app-productos [productos]="misDatos"></app-productos>
+
+  <!--
+  <ion-card *ngFor="let producto of misDatos;let i = index">
+    <img  *ngIf="producto.linkvideo === 'url_link_video'" (click)="seleccionarProducto(producto.id,i)" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+
+    
+    <ion-slides pager="true" *ngIf="producto.linkvideo !== 'url_link_video'">
+      <ion-slide *ngFor="let multimedia of producto.linkvideo">
+        <img src="{{multimedia.url}}" />
+      </ion-slide>
+    </ion-slides>
+    
+    
+    <ion-card-header>
+      <ion-card-title>{{producto.product}}</ion-card-title>
+      <ion-card-subtitle (click)="seleccionarProducto(producto.id,i)"> {{i}} {{producto.sku}} - {{producto.id}} 
+      </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{producto.characteristics}}
+    </ion-card-content>
+  </ion-card>
+-->   
+  
+  <ion-infinite-scroll
+      threshold="25%"
+      position="bottom"
+      (ionInfinite)="loadData()"
+    >
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+
+</ion-content>
